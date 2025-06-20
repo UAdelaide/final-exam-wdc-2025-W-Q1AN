@@ -13,18 +13,32 @@ router.get('/', async (req, res) => {
 });
 
 // POST a new user (simple signup)
-router.post('/register', async (req, res) => {
-  const { username, email, password, role } = req.body;
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
 
   try {
-    const [result] = await db.query(`
-      INSERT INTO Users (username, email, password_hash, role)
-      VALUES (?, ?, ?, ?)
-    `, [username, email, password, role]);
+    const [rows] = await db.query(`
+      SELECT user_id, username, role FROM Users
+      WHERE email = ? AND password_hash = ?
+    `, [email, password]);
 
-    res.status(201).json({ message: 'User registered', user_id: result.insertId });
+    if (rows.length === 0) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    req.session.user = {
+      id: rows[0].user_id,
+      username: rows[0].username,
+      role: rows[0].role
+    };
+
+    res.json({
+      message: 'Login successful',
+      role: rows[0].role
+    });
+
   } catch (error) {
-    res.status(500).json({ error: 'Registration failed' });
+    res.status(500).json({ error: 'Login failed' });
   }
 });
 
