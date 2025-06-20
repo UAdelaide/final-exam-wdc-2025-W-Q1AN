@@ -115,18 +115,13 @@
           }
         }
 
-                async function logout() {
+        async function logout() {
           await fetch('/api/users/logout', { method: 'POST' });
           window.location.href = '/';
         }
         onMounted(() => {
           loadWalks();
         });
-
-        async function logout() {
-          await fetch('/api/users/logout', { method: 'POST' });
-          window.location.href = '/';
-        }
 
         return {
           form,
