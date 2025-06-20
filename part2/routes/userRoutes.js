@@ -69,6 +69,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
+// get 
 router.get('/owners/:id/dogs', async (req, res) => {
   const ownerId = req.params.id;
 
