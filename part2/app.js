@@ -19,7 +19,6 @@ app.use('/api/users', userRoutes);
 module.exports = app;
 
 const session = require('express-session');
-
 app.use(session({
   secret: 'supersecretkey',
   resave: false,
