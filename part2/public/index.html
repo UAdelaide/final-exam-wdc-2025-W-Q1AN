@@ -44,13 +44,13 @@
               if (data.role === 'owner') {
                 window.location.href = 'owner-dashboard.html';
               } else if (data.role === 'walker') {
-          window.location.href = 'walker-dashboard.html';
+                window.location.href = 'walker-dashboard.html';
+              }
+            } catch (err) {
+              alert('Login failed: ' + err.message);
+            }
+          }
         }
-      } catch (err) {
-        alert('Login failed: ' + err.message);
-      }
-    }
-  }
 }).mount('#app');
   </script>
 
