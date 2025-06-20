@@ -75,9 +75,9 @@
         }
 
         async function logout() {
-  await fetch('/api/users/logout', { method: 'POST' });
-  window.location.href = '/';
-}
+            await fetch('/api/users/logout', { method: 'POST' });
+          window.location.href = '/';
+        }
 
         onMounted(() => {
           loadWalkRequests();
