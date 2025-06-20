@@ -22,13 +22,13 @@
          data() {
           return {
             message: 'Welcome to the Dog Walking Service!',
-      email: '',
-      password: ''
-    };
-  },
-  methods: {
-    async login() {
-      try {
+            email: '',
+            password: ''
+          };
+        },
+        methods: {
+          async login() {
+            try {
         const res = await fetch('/api/users/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
