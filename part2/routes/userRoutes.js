@@ -45,8 +45,8 @@ router.post('/login', async (req, res) => {
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
     `, [username, password]);
-    // If no user found
 
+    // If no user found
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -62,6 +62,7 @@ router.post('/login', async (req, res) => {
 
 // POST logout
 router.post('/logout', (req, res) => {
+
   req.session.destroy((err) => {
     if (err) {
       return res.status(500).json({ error: 'Logout failed' });
