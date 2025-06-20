@@ -70,6 +70,7 @@ router.post('/logout', (req, res) => {
     res.clearCookie('connect.sid'); // 删除 cookie
     res.json({ message: 'Logout successful' });
   });
+
 });
 
 // Get a list of dogs owned by an owner
