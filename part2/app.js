@@ -3,7 +3,9 @@ const path = require('path');
 require('dotenv').config();
 const app = express();
 
+// Import the express-session middleware
 const session = require('express-session');
+
 app.use(session({
   secret: 'supersecretkey',
   resave: false,
