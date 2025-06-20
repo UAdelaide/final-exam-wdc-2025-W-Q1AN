@@ -15,6 +15,11 @@
 
 
     <form @submit.prevent="login" class="mb-3">
+      <div id="app" class="container py-5">
+  <div style="max-width: 500px; margin-left: 0;">
+    <h1 class="mb-4 text-primary">Welcome to the Dog Walking Service!</h1>
+
+    <form @submit.prevent="login" class="mb-3">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input v-model="username" id="username" class="form-control" required autocomplete="username">
@@ -25,8 +30,10 @@
       </div>
       <button type="submit" class="btn btn-primary w-100">Log In</button>
     </form>
+
     <div v-if="error" class="alert alert-danger text-center">{{ error }}</div>
   </div>
+</div>
 
   <script>
     const { createApp } = Vue;
