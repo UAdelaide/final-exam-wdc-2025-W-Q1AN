@@ -19,7 +19,7 @@
         <label for="username" class="form-label">Username</label>
         <input v-model="username" id="username" class="form-control" required autocomplete="username">
       </div>
-      <div class="mb-3"> <!-- Password -->
+      <div class="mb-3"> 
         <label for="password" class="form-label">Password</label>
         <input v-model="password" id="password" type="password" class="form-control" required autocomplete="current-password">
       </div>
@@ -52,7 +52,7 @@
             });
             const result = await res.json();
             if (!res.ok) {
-              this.error = result.error || 'Login failed'; //Login failed message
+              this.error = result.error || 'Login failed';
               return;
             }
             // Redirect pages based on user identity
