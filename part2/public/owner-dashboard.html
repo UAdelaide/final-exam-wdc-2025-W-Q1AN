@@ -122,7 +122,7 @@
         async function logout() {
           await fetch('/api/users/logout', { method: 'POST' });
           window.location.href = '/';
-      }
+        }
 
         return {
           form,
@@ -130,6 +130,7 @@
           message,
           error,
           submitWalkRequest
+          logout
         };
       }
     }).mount('#app');
