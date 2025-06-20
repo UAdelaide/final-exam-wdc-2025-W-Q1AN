@@ -100,8 +100,10 @@
           try {
             const user = await fetch('/api/users/me').then(r => r.json());
             const ownerId = user.user_id;
-            if (!user.id) throw new Error("Not logged in");
-            const res = await fetch(`/api/users/owners/${user.id}/dogs`);
+            if (!ownerId) throw new Error("Not logged in");
+
+            const res = await fetch(`/api/users/owners/${ownerId}/dogs`);
+            if (!res.ok) throw new Error("Failed to fetch dogs");
             dogs.value = await res.json();
           } catch (err) {
             error.value = 'Failed to load dog list';
