@@ -94,6 +94,7 @@
           }
         }
 
+        const ownedDogs = ref([]);
         async function loadDogs() {
           try {
             const user = await fetch('/api/users/me').then(r => r.json());
