@@ -95,15 +95,17 @@
         }
 
         const dogs = ref([]);
+
         async function loadDogs() {
           try {
-            const user = await fetch('/api/users/me').then(r => r.json());
-            const res = await fetch(`/api/users/owners/${user.id}/dogs`);
-            dogs.value = await res.json();
-          } catch (err) {
-            error.value = 'Failed to load dog list';
-          }
-        }
+        const user = await fetch('/api/users/me').then(r => r.json());
+        if (!user.id) throw new Error("Not logged in");
+        const res = await fetch(`/api/users/owners/${user.id}/dogs`);
+        dogs.value = await res.json();
+      } catch (err) {
+        error.value = 'Failed to load dog list';
+      }
+    }
 
         async function submitWalkRequest() {
           try {
