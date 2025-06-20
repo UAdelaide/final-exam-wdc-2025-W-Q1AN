@@ -56,11 +56,13 @@
               })
             });
             const result = await res.json();
+
             // If login fails
             if (!res.ok) {
               this.error = result.error || 'Login failed';
               return;
             }
+
             // Redirect pages based on user identity
             if (result.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
