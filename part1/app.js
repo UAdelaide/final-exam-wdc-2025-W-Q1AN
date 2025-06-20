@@ -28,6 +28,7 @@ app.get('/api/dogs', async (req, res) => {
 
 // Route: /api/walkrequests/open
 app.get('/api/walkrequests/open', async (req, res) => {
+
   try {
     const [rows] = await pool.query(`
       SELECT wr.request_id, d.name AS dog_name, wr.requested_time,
@@ -45,7 +46,9 @@ app.get('/api/walkrequests/open', async (req, res) => {
 
 // Route: /api/walkers/summary
 app.get('/api/walkers/summary', async (req, res) => {
+
   try {
+
     const [rows] = await pool.query(`
       SELECT u.username AS walker_username,
              COUNT(r.rating_id) AS total_ratings,
