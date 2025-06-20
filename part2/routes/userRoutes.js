@@ -73,10 +73,6 @@ router.post('/logout', (req, res) => {
 router.get('/owners/:id/dogs', async (req, res) => {
   const ownerId = req.params.id;
 
-  if (!req.session.user || req.session.user.role !== 'owner' || req.session.user.id !== ownerId) {
-    return res.status(403).json({ error: 'Forbidden: You are not authorized to view this data.' });
-  }
-
   try {
     const [rows] = await db.query(
       'SELECT dog_id, name FROM Dogs WHERE owner_id = ?',
