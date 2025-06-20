@@ -5,6 +5,7 @@ const app = express();
 
 // Import the express-session middleware
 const session = require('express-session');
+
 // Set up session handling middleware
 app.use(session({
   secret: 'supersecretkey',
