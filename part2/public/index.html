@@ -17,10 +17,12 @@
     <!-- Login form -->
     <form @submit.prevent="login" class="mb-3">
       <!-- Password field -->
+
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input v-model="username" id="username" type="text" class="form-control" required autocomplete="username">
       </div>
+
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input v-model="password" id="password" type="password" class="form-control" required autocomplete="current-password">
@@ -36,12 +38,14 @@
 
   <script>
     const { createApp } = Vue;
+
     createApp({
       data() {
         return {
           username: '', password: '', error: '' // Holds input value
         };
       },
+
       methods: {
         // Login function
         async login() {
