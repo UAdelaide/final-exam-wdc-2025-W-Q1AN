@@ -69,7 +69,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
-// get 
+// Get a list of dogs owned by an owner
 router.get('/owners/:id/dogs', async (req, res) => {
   const ownerId = req.params.id;
 
