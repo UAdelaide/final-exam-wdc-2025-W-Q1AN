@@ -12,6 +12,7 @@
 
   <div id="app" class="py-5 ps-5">
   <div style="max-width: 500px; margin-left: 0;">
+
     <h1 class="mb-4 text-primary">Welcome to the Dog Walking Service!</h1>
 
     <form @submit.prevent="login" class="mb-3">
@@ -26,7 +27,8 @@
       <button type="submit" class="btn btn-primary w-100">Log In</button>
     </form>
 
-    <div v-if="error" class="alert alert-danger text-center">{{ error }}</div>
+     <div v-if="error" class="alert alert-danger text-center">{{ error }}</div>
+
   </div>
 </div>
 
